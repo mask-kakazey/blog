@@ -1,0 +1,11 @@
+<div class="{{ menu_class }}">
+    <ul>
+        <div class="d-flex justify-content-center">
+            {% for item in categories %}
+            <div class="btn_area text-center">
+                <a href="{{ item }}" class="boxed-btn">{{ item.title }}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </ul>
+</div>
