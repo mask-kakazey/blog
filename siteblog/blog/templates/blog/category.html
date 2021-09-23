@@ -1,20 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
-
-{% block title %}{{ title }} :: {{ block.super }} {% endblock %}
+{% load menu %}
 
 {% block content %}
-<!-- welcome_protomedia_start -->
-<div class="welcome_protomedia">
+
+<div class="mt-5 mb-5">
     <div class="container">
-        <div class="row">
-            <div class="col-xl-12 col-md-12" align="center">
-                <h3>Welcome to Photomedia photography blog</h3>
-            </div>
+        <div class="d-flex justify-content-center">
+                {% show_menu %}
         </div>
     </div>
 </div>
-<!-- welcome_protomedia_end -->
 
 <!-- photographi_area_start -->
 <div class="photographi_area">
@@ -58,7 +54,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
-                <div class="section_title mb-33 mt-5">
+                <div class="section_title mb-33">
                     <h3>Most Recent</h3>
                 </div>
             </div>
@@ -75,7 +71,6 @@
                                 {% endif %}
                             </div>
                             <div class="blog_meta">
-                                <p><a href="{{ post.get_absolute_url }}">Photography I {{ post.created_at|date:"j F Y" }}</a></p>
                                 <h3><a href="{{ post.get_absolute_url }}">{{post.title}}</a></h3>
                             </div>
                         </div>
