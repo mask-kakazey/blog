@@ -3,21 +3,18 @@
 {% load menu %}
 {% load sidebar %}
 
-{% block content %}
+{% block title %}{{ title }} :: {{ block.super }} {% endblock %}
 
-<div class="mt-5 mb-5">
-    <div class="container">
-        <div class="d-flex justify-content-center">
-                {% show_menu %}
-        </div>
-    </div>
-</div>
+
+{% block content %}
 
 <div class="most_recent_blog">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
-                <div class="section_title mb-33">
+
+                <div class="section_title mb-33 mt-5">
+
                     <h3>Most Recent</h3>
                 </div>
             </div>

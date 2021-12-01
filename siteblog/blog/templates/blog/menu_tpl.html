@@ -3,7 +3,7 @@
         <div class="d-flex justify-content-center">
             {% for item in categories %}
             <div class="btn_area text-center">
-                <a href="{{ item }}" class="boxed-btn">{{ item.title }}</a>
+                <a href="{{ item.get_absolute_url }}" class="boxed-btn">{{ item.title }}</a>
             </div>
             {% endfor %}
         </div>

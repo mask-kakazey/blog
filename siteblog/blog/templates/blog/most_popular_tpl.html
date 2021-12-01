@@ -1,0 +1,24 @@
+<div class="photographi_area">
+    <div class="container">
+        <div class="row">
+        {% for post in posts %}
+            <div class="col-xl-6 col-md-6">
+                {% if post.photo %}
+                <img src="{{ post.photo.url }}" alt="{{ post.title }}" style="height: 380px; width: 530px">
+                {% else %}
+                <img src="https://picsum.photos/530/380" alt="{{ post.title }}">
+                {% endif %}
+                <div class="info">
+                    <div class="info_inner">
+                        <h3><a href="{{post.get_absolute_url}}">{{ post.title }}<br></a></h3>
+                        <div class="date_catagory d-flex align-items-center justify-content-between">
+                            <span>{{ post.created_at|date:"j F Y" }}</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        {% endfor %}
+
+        </div>
+    </div>
+</div>
