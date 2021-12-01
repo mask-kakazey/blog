@@ -7,9 +7,9 @@
                     <div class="col-xl-4 col-md-4 d-none d-md-block">
                         <div class="header_links ">
                             <ul>
-                                <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                                <li><a class="twiter" href="#"> <i class="fa fa-twitter"></i> </a></li>
-                                <li><a class="insta" href="#"> <i class="fa fa-instagram"></i> </a></li>
+                                <li><a href="https://www.facebook.com/groups/2078151618944335/?ref=group_browse" target="_blank"> <i class="fa fa-facebook"></i> </a></li>
+                                <li><a class="twiter" href="https://twitter.com/globalhq1" target="_blank"> <i class="fa fa-twitter"></i> </a></li>
+                                <li><a class="insta" href="https://www.instagram.com/adventuretravels/" target="_blank"> <i class="fa fa-instagram"></i> </a></li>
                             </ul>
                         </div>
                     </div>
@@ -22,7 +22,11 @@
                     </div>
                     <div class="col-xl-4 col-md-4 d-none d-md-block">
                         <div class="login_resiter">
-                            <p><a href="#"><i class="flaticon-user"></i>login</a> | <a href="#">Resister</a></p>
+                            {% if request.user.is_authenticated%}
+                            {{ user.username }} | <a href="{% url 'logout' %}">Logout</a>
+                            {% else %}
+                            <p><a href="{% url 'login' %}"><i class="flaticon-user"></i>login</a> | <a href="{% url 'register' %}">Resister</a></p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -37,7 +41,6 @@
                                 <ul id="navigation">
                                     <li><a href="{% url 'home' %}">Home</a></li>
                                     <li><a href="{% url 'category' %}">Category</a></li>
-                                    <li><a href="about.html">About</a></li>
                                 </ul>
                             </nav>
                         </div>
