@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load menu %}
-{% load sidebar %}
+
+{% block title %}{{ title }} :: {{ block.super }} {% endblock %}
+
 
 {% block content %}
 
@@ -13,11 +15,15 @@
     </div>
 </div>
 
+</div>
+
 <div class="most_recent_blog">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
-                <div class="section_title mb-33">
+
+                <div class="section_title mb-33 mt-5">
+
                     <h3>Most Recent</h3>
                 </div>
             </div>
@@ -50,7 +56,11 @@
                     </div>
                     <div class="tags">
                         <ul>
-                            {% get_tags %}
+                            <li><a href="#">camera</a></li>
+                            <li><a href="#">photography</a></li>
+                            <li><a href="#">lens</a></li>
+                            <li><a href="#">blog</a></li>
+                            <li><a href="#">magazine</a></li>
                         </ul>
                     </div>
                 </div>

@@ -3,25 +3,15 @@
 {% load menu %}
 {% load sidebar %}
 
-{% block content %}
+{% block title %} Search :: {{ block.super }} {% endblock %}
 
-<div class="mt-5 mb-5">
-    <div class="container">
-        <div class="d-flex justify-content-center">
-                {% show_menu %}
-        </div>
-    </div>
-</div>
+
+{% block content %}
 
 <div class="most_recent_blog">
     <div class="container">
         <div class="row">
-            <div class="col-xl-12">
-                <div class="section_title mb-33">
-                    <h3>Most Recent</h3>
-                </div>
-            </div>
-            <div class="col-xl-8 col-md-8">
+            <div class="col-xl-8 col-md-8 mb-33 mt-5">
                 <div class="row">
                     {% for post in posts %}
                     <div class="col-xl-6 col-md-6">
@@ -39,13 +29,30 @@
                             </div>
                         </div>
                     </div>
+                    {% empty %}
+                    <p>Sorry! Your request did not return any results...</p>
                     {% endfor %}
 
                 </div>
             </div>
-            <div class="col-xl-4 col-md-4">
+            <div class="col-xl-4 col-md-4 mb-33 mt-5">
+                <aside class="single_sidebar_widget search_widget">
+                     <form action="{% url 'search' %}" method="get">
+                        <div class="form-group">
+                           <div class="input-group mb-3">
+                              <input type="text" class="form-control" name="s" placeholder='Search Keyword'
+                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
+                              <div class="input-group-append">
+                                 <button class="btn" type="button"><i class="ti-search"></i></button>
+                              </div>
+                           </div>
+                        </div>
+                        <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
+                           type="submit">Search</button>
+                     </form>
+                  </aside>
                 <div class="blog_right_side">
-                    <div class="section_title mb-33">
+                    <div class="section_title mb-33 mt-5">
                         <h3>Tags</h3>
                     </div>
                     <div class="tags">
